@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database defaultIdMethod="native" name="propel" package="lib.model">
+  <table name="user">
+    <column name="id" type="INTEGER" primaryKey="true" required="true" autoIncrement="true"/>
+    <column name="email" type="VARCHAR" size="64"/>
+  </table>
+  <table name="pizza_order">
+    <column name="id" type="INTEGER" primaryKey="true" required="true" autoIncrement="true"/>
+    <column name="user_id" type="INTEGER" />
+    <column name="name" type="VARCHAR" size="45"/>
+    <column name="time_open" type="TIMESTAMP"/>
+    <column name="time_close" type="TIMESTAMP"/>
+    <foreign-key name="fk_pizza_order_user_id" foreignTable="user">
+      <reference local="user_id" foreign="id"/>
+    </foreign-key>
+  </table>
+  <table name="ingredient">
+    <column name="id" type="INTEGER" primaryKey="true" required="true" autoIncrement="true"/>
+    <column name="name" type="VARCHAR" size="45"/>
+    <column name="category_id" type="INTEGER"/>
+    <foreign-key name="fk_ingredient_category" foreignTable="category">
+      <reference local="category_id" foreign="id"/>
+    </foreign-key>
+  </table>
+  <table name="category">
+    <column name="id" type="INTEGER" primaryKey="true" required="true" autoIncrement="true"/>
+    <column name="name" type="VARCHAR" size="45"/>
+  </table>
+  <table name="vote">
+    <column name="id" type="INTEGER" primaryKey="true" required="true" autoIncrement="true"/>
+    <column name="user_id" type="INTEGER" />
+    <foreign-key name="fk_vote_user_id" foreignTable="user">
+      <reference local="user_id" foreign="id"/>
+    </foreign-key>
+    
+  </table> 
+</database>

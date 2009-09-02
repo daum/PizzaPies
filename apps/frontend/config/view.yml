@@ -1,0 +1,18 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    #title:        symfony project
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:    [main.css, screen.css, print.css, ie.css]
+
+  javascripts:    [jquery-1.3.2.js, jquery-1.3.2.min.js, validate.jquery.js]
+
+  has_layout:     on
+  layout:         layout
+  

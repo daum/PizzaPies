@@ -1,0 +1,27 @@
+get_json_ingredient:
+  url: /get/jsonIngredient
+  param: { module: main, action: getIngredientJson }
+ 
+order_success:
+  url: /order/success
+  param: { module: main, action: orderSuccess }
+ 
+order_view:
+  url: /:id
+  class: sfPropelRoute
+  options: { model: PizzaOrder, type: object }
+  param: { module: main, action: view } 
+  requirements:
+    id: \d+
+    
+# default rules
+homepage:
+  url:   /
+  param: { module: main, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
